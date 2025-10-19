@@ -28,6 +28,15 @@ ul {
   margin: 0;
 }
 
+button {
+  background: none;
+  text-decoration: none;
+  margin: 0;
+  outline: none;
+  appearance: none;
+  border: none;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -69,6 +78,8 @@ ul {
 }
 
 .container .left-side .history .item {
+  position: relative;
+
   color: var(--primary-color);
   text-wrap: nowrap;
   overflow: hidden;
@@ -85,6 +96,24 @@ ul {
 .container .left-side .history .item.active,
 .container .left-side .history .item:hover {
   background-color: rgba(228, 228, 228, 0.05);
+}
+
+.container .left-side .history .item .delete-btn {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  font-size: 12px;
+  color: rgb(145, 145, 145);
+  border-radius: 4px;
+  /* background-color: rgba(220, 220, 220, 0.05); */
+  background-color: rgb(50, 50, 50);
+  cursor: pointer;
+}
+
+.container .left-side .history .item:hover .delete-btn {
+  display: block;
 }
 
 .container .right-side {
@@ -109,9 +138,13 @@ ul {
   padding: 10px;
   border: 1px solid rgba(116, 114, 114, 0.5);
   border-radius: 8px;
-  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  /* box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); */
   background-color: var(--primary-bg);
   z-index: 999;
+}
+
+.container .right-side .text-input-container:focus-within {
+  border: 1px solid rgba(182, 182, 182, 0.5);
 }
 
 .container .right-side .top-title {
@@ -140,6 +173,11 @@ ul {
   outline: none;
 }
 
+.container .right-side .text-input-container .operation .send-btn:disabled {
+  color: #798c89;
+  cursor: not-allowed;
+}
+
 .container .right-side .text-input-container .operation {
   margin-top: 10px;
   display: flex;
@@ -161,6 +199,7 @@ ul {
   border: none;
   background-color: rgba(239, 237, 237, 0.1);
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .container .right-side .content {
@@ -238,10 +277,32 @@ ul {
   .conversation
   .item
   .answer
+  .answer-content {
+  display: none;
+}
+
+.container
+  .right-side
+  .content
+  .conversation-container
+  .conversation
+  .item
+  .answer
+  .answer-content.active {
+  display: block;
+}
+
+.container
+  .right-side
+  .content
+  .conversation-container
+  .conversation
+  .item
+  .answer
   .source-overview {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   margin-bottom: 16px;
 }
 
@@ -256,6 +317,8 @@ ul {
   .item {
   width: 180px;
   padding: 4px;
+  margin-right: 12px;
+
   font-size: 14px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -272,6 +335,7 @@ ul {
   .answer-text {
   text-align: justify;
   line-height: 1.6;
+  /* overflow: scroll; */
 }
 
 .container
@@ -281,6 +345,16 @@ ul {
   .conversation
   .item
   .source {
+  display: none;
+}
+
+.container
+  .right-side
+  .content
+  .conversation-container
+  .conversation
+  .item
+  .source.active {
   display: flex;
   flex-direction: column;
 }

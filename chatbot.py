@@ -34,15 +34,17 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 class Source(BaseModel):
     article_name: str = Field(..., description="Tên của điều luật")
-    ariticle_content: str = Field(
-        ..., description="Nội dung của điều luật, không chứa tên"
+    article_content: str = Field(
+        ...,
+        description="Nội dung của điều luật, không không chứa số điều, tên điều luật",
     )
     section: str = Field(default="", description="Mục của luật")
     chapter: str = Field(..., description="Chương của luật")
+    source_name: str = Field(..., description="Tên luật nguồn")
 
 
 class RetrievalResult(BaseModel):
-    answer: str = Field(..., description="Câu trả lời")
+    answer: str = Field(..., description="Câu trả lời, định dạng Markdown")
     sources: List[Source] = Field(..., description="Danh sách nguồn kết quả truy vấn")
 
 
@@ -52,7 +54,8 @@ structured_llm = llm.with_structured_output(RetrievalResult)
 def chatbot(question):
 
     template = """
-    Dựa vào các thông tin pháp luật được trích dẫn dưới đây, hãy trả lời câu hỏi của người dùng một cách chính xác và rõ ràng. Luôn trích dẫn nguồn từ điều, khoản, và tên văn bản đã được cung cấp. Nếu thông tin không có trong văn bản, hãy trả lời rằng bạn không tìm thấy thông tin.
+    Bạn là trợ một trợ lý pháp luật thông minh, dựa vào các thông tin pháp luật được trích dẫn dưới đây, hãy trả lời câu hỏi của người dùng một cách chính xác và rõ ràng. Luôn trích dẫn nguồn từ điều, khoản, và tên văn bản đã được cung cấp. Nếu thông tin không có trong văn bản, hãy trả lời rằng bạn không tìm thấy thông tin.
+    Lưu ý: Trả lời một cách trực tiếp, bỏ qua các lời chào, thông tin ngữ cảnh,...
         [NGỮ CẢNH]
     ---
     {context}

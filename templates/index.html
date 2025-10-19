@@ -11,7 +11,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -20,178 +21,29 @@
           <i class="fa-solid fa-plus"></i> Create new conversation
         </div>
         <p class="title">History</p>
-        <ul class="history">
-          <li class="item active">Sửa lỗi commit sai tài khoản</li>
-          <li class="item">
-            Cấu hình DHCP Server trên Client VMWare dfd df df d
-          </li>
-          <li class="item">Giới thiệu thuật toán Apriori</li>
-          <li class="item">Hãy giải thích cơ chế của DHCP</li>
-          <li class="item">Lệnh grep, fgrep, và wc Linux</li>
-          <li class="item">Tạo viền lục giác bằng CSS</li>
-          <li class="item">Giới thiệu về Data Mining</li>
-          <li class="item">
-            Sửa lỗi định dạng cột CSV trong excel df df d dsf sdf sdf ds
-          </li>
-        </ul>
+        <ul class="history"></ul>
       </div>
       <div class="right-side">
-        <div class="content have-content">
+        <div class="content">
           <div class="top-title">
             <div class="title">Legal Chatbot</div>
           </div>
 
           <div class="conversation-container">
-            <ul class="conversation">
-              <li class="item">
-                <div class="question">
-                  <p>NPU là gì?</p>
-                </div>
-                <div class="answer">
-                  <ul class="tabs">
-                    <li class="answer-tab">
-                      <i class="fa-solid fa-robot"></i> Answer
-                    </li>
-                    <li class="source-tab active">
-                      <i class="fa-solid fa-folder-tree"></i> Sources
-                    </li>
-                  </ul>
-
-                  <div class="answer-content" style="display: none">
-                    <ul class="source-overview">
-                      <li class="item">
-                        Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                      </li>
-                      <li class="item">
-                        Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                      </li>
-                      <li class="item">
-                        Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                      </li>
-                      <li class="item">
-                        Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                      </li>
-                    </ul>
-                    <div class="answer-text">
-                      NPU (Neural Processing Unit) là một loại bộ vi xử lý
-                      chuyên dụng được thiết kế để xử lý các tác vụ liên quan
-                      đến trí tuệ nhân tạo (AI) và học máy một cách hiệu quả.
-                      Khác với CPU và GPU, NPU được tối ưu hóa để thực hiện các
-                      phép tính ma trận và đại số tuyến tính phức tạp, vốn là
-                      nền tảng trong các mô hình mạng nơron nhân tạo (artificial
-                      neural networks). Điều này giúp NPU tăng tốc độ xử lý các
-                      ứng dụng AI như nhận diện hình ảnh, giọng nói và phân tích
-                      dữ liệu, đồng thời tiết kiệm năng lượng hơn, rất quan
-                      trọng với thiết bị di động như smartphone và laptop AI.
-                      NPU trở thành thành phần thiết yếu trong các thiết bị
-                      thông minh và máy tính thế hệ mới để tăng cường hiệu suất
-                      xử lý AI và mở rộng ứng dụng trí tuệ nhân tạo trong đời
-                      sống hàng ngày.
-                    </div>
-                  </div>
-                </div>
-
-                <ul class="source">
-                  <li class="item">
-                    <div class="heading">
-                      Điều 447 Mục 1 Chương XVI Luật hình sự Việt Nam 2015
-                    </div>
-                    <div class="article-title">Quyền yêu cầu bảo hành</div>
-                    <div class="content">
-                      Trong thời hạn bảo hành, nếu bên mua phát hiện được khuyết
-                      tật của vật mua bán thì có quyền yêu cầu bên bán sửa chữa
-                      không phải trả tiền, giảm giá, đổi vật có khuyết tật lấy
-                      vật khác hoặc trả lại vật và lấy lại tiền.
-                    </div>
-                  </li>
-
-                  <li class="item">
-                    <div class="heading">
-                      Điều 447 Mục 1 Chương XVI Luật hình sự Việt Nam 2015
-                    </div>
-                    <div class="article-title">Quyền yêu cầu bảo hành</div>
-                    <div class="content">
-                      Trong thời hạn bảo hành, nếu bên mua phát hiện được khuyết
-                      tật của vật mua bán thì có quyền yêu cầu bên bán sửa chữa
-                      không phải trả tiền, giảm giá, đổi vật có khuyết tật lấy
-                      vật khác hoặc trả lại vật và lấy lại tiền.
-                    </div>
-                  </li>
-
-                  <li class="item">
-                    <div class="heading">
-                      Điều 447 Mục 1 Chương XVI Luật hình sự Việt Nam 2015
-                    </div>
-                    <div class="article-title">Quyền yêu cầu bảo hành</div>
-                    <div class="content">
-                      Trong thời hạn bảo hành, nếu bên mua phát hiện được khuyết
-                      tật của vật mua bán thì có quyền yêu cầu bên bán sửa chữa
-                      không phải trả tiền, giảm giá, đổi vật có khuyết tật lấy
-                      vật khác hoặc trả lại vật và lấy lại tiền.
-                    </div>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="item">
-                <div class="question">
-                  <p>NPU là gì?</p>
-                </div>
-                <div class="answer">
-                  <ul class="tabs">
-                    <li class="answer-tab active">
-                      <i class="fa-solid fa-robot"></i> Answer
-                    </li>
-                    <li class="source-tab">
-                      <i class="fa-solid fa-folder-tree"></i> Sources
-                    </li>
-                  </ul>
-
-                  <ul class="source-overview">
-                    <li class="item">
-                      Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                    </li>
-                    <li class="item">
-                      Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                    </li>
-                    <li class="item">
-                      Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                    </li>
-                    <li class="item">
-                      Điều 47 Mục 1 Chương XVI Luật Hình sự Việt Nam
-                    </li>
-                  </ul>
-
-                  <div class="answer-text">
-                    NPU (Neural Processing Unit) là một loại bộ vi xử lý chuyên
-                    dụng được thiết kế để xử lý các tác vụ liên quan đến trí tuệ
-                    nhân tạo (AI) và học máy một cách hiệu quả. Khác với CPU và
-                    GPU, NPU được tối ưu hóa để thực hiện các phép tính ma trận
-                    và đại số tuyến tính phức tạp, vốn là nền tảng trong các mô
-                    hình mạng nơron nhân tạo (artificial neural networks). Điều
-                    này giúp NPU tăng tốc độ xử lý các ứng dụng AI như nhận diện
-                    hình ảnh, giọng nói và phân tích dữ liệu, đồng thời tiết
-                    kiệm năng lượng hơn, rất quan trọng với thiết bị di động như
-                    smartphone và laptop AI. NPU trở thành thành phần thiết yếu
-                    trong các thiết bị thông minh và máy tính thế hệ mới để tăng
-                    cường hiệu suất xử lý AI và mở rộng ứng dụng trí tuệ nhân
-                    tạo trong đời sống hàng ngày.
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <ul class="conversation"></ul>
           </div>
         </div>
 
         <div class="text-input-container">
-          <input type="text" placeholder="Hỏi chatbot" />
+          <input type="text" placeholder="Ask assistant" />
           <div class="operation">
-            <button class="send-btn">
+            <button class="send-btn" disabled>
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </div>
         </div>
       </div>
     </div>
+    <script src="/static/js/index.js"></script>
   </body>
 </html>
