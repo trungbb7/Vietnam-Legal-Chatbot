@@ -17,12 +17,12 @@ Law Chatbot Vietnam là một ứng dụng web thông minh giúp người dùng 
 - Giao diện chat thân thiện và hiện đại
 - Lưu trữ lịch sử hội thoại
 
-! [Screenshot1] (images/screenshot1.png)
-! [Screenshot2] (images/screenshot2.png)
+![Screenshot1](images/screenshot1.png)
+![Screenshot2](images/screenshot2.png)
 
 ## Kiến trúc hệ thống
 
-! [Sơ đồ Kiến trúc Hệ thống] (images/system_architecture.png)
+![Sơ đồ Kiến trúc Hệ thống](images/system_architecture.png)
 
 ### Thành phần chính:
 
