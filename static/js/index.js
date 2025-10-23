@@ -50,19 +50,22 @@ function appendChatItemToUI(sourceReview, question, answer, fromChat = false) {
         <li class="answer-tab active">
           <i class="fa-solid fa-robot"></i> Answer
         </li>
-        <li class="source-tab">
+        <li class="source-tab ${sourceReview || "disabled"}">
           <i class="fa-solid fa-folder-tree"></i> Sources
         </li>
       </ul>
 
       <div class="answer-content active">
-        <ul class="source-overview">
-        ${sourceReview
-          .slice(0, 5)
-          .map((item) => {
-            return `<li class="item">${item.articleNumber} ${item.sectionNumber} ${item.chapterNumber} ${item.sourceName}</li>`;
-          })
-          .join("")}
+        <ul class="source-overview ${sourceReview || "disabled"}">
+        ${
+          sourceReview &&
+          sourceReview
+            .slice(0, 5)
+            .map((item) => {
+              return `<li class="item">${item.articleNumber} ${item.sectionNumber} ${item.chapterNumber} ${item.sourceName}</li>`;
+            })
+            .join("")
+        }
         </ul>
         <div class="answer-text">
         ${marked.parse(answer)}
@@ -71,9 +74,11 @@ function appendChatItemToUI(sourceReview, question, answer, fromChat = false) {
     </div>
 
     <ul class="source">
-    ${sourceReview
-      .map((item) => {
-        return `<li class="item">
+    ${
+      sourceReview &&
+      sourceReview
+        .map((item) => {
+          return `<li class="item">
         <div class="heading">
           ${item.articleNumber} ${item.sectionNumber} ${item.chapterNumber} ${item.sourceName}
         </div>
@@ -82,8 +87,9 @@ function appendChatItemToUI(sourceReview, question, answer, fromChat = false) {
           ${item.articleContent}
         </div>
       </li>`;
-      })
-      .join("")}
+        })
+        .join("")
+    }
     </ul>
   </li>
 `;
@@ -144,15 +150,17 @@ function addChatItem(id, sourceReview, question, answer) {
       question,
       answer: {
         text: answer,
-        sources: sourceReview.map((item) => {
-          return {
-            article_content: item.articleContent,
-            article_name: item.article,
-            chapter: item.chapter,
-            section: item.section,
-            source_name: item.sourceName,
-          };
-        }),
+        sources:
+          sourceReview &&
+          sourceReview.map((item) => {
+            return {
+              article_content: item.articleContent,
+              article_name: item.article,
+              chapter: item.chapter,
+              section: item.section,
+              source_name: item.sourceName,
+            };
+          }),
       },
     });
     conversation.updated_at = Date.now();
@@ -175,8 +183,10 @@ async function chat(question) {
     let result = await response.json();
     result = result.result;
 
-    const sourceReview = getSourcesReview(result.sources);
-
+    let sourceReview = null;
+    if (result.type === "legal") {
+      sourceReview = getSourcesReview(result.sources);
+    }
     if (currentConversationId == null) {
       const id = newConversation(question);
       loadData();
